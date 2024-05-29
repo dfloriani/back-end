@@ -1,0 +1,40 @@
+<%- include("partials/sidebar.ejs") %>
+
+<div class="col-sm-8 col-md-9 col-xl-10 post">
+    <h1><%= post.title %></h1>
+    <p><%= post.blogText %></p>
+  <form method="GET" class="middle-buttons">
+    <button class="btn btn-light border rounded" type="submit" formaction="/edit/<%= post.id %>">Edit post</button>
+    <button class="btn btn-light border rounded" data-bs-toggle="modal" 
+    data-bs-target="#staticBackdrop" type="button">Delete post</button>
+  </form>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Delete post</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to delete post <%= post.title %>?
+      </div>
+      <div class="modal-footer">
+        <form action="/delete/<%= post.id %>?_method=DELETE" method="POST">
+          <button type="button" class="btn btn-light border" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-dark">Confirm</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous">
+</script>
+  </body>
+</html>

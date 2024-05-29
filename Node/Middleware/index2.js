@@ -1,4 +1,5 @@
 import express from "express";
+// Morgan logging middleware
 import morgan from "morgan";
 
 const app = express();

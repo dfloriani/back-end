@@ -1,0 +1,67 @@
+.bg-dark {
+    font-family: "Major Mono Display", monospace;
+    height: 100vh;
+}
+
+span {
+    margin: 10px 0 0 10px;
+}
+
+.new-color, .nav-link.active {
+    background-color: #5C5470;
+    margin: 5px;
+}
+
+.nav-pills {
+    justify-content: center;
+}
+
+.bg-dark p {
+    margin: 5px;
+    padding-top: 10px;
+}
+
+.blog {
+    display: flex;
+    flex-direction: column;
+    font-family: "Ubuntu Mono", monospace;
+    justify-content: center;
+    gap: 20px;
+    margin: 0 auto;
+    height: auto;
+}
+
+.posts {
+    display: flex;
+    flex-direction: column;
+    font-family: "Ubuntu Mono", monospace;
+    align-items: center;
+    gap: 20%;
+    margin-top: 40px;
+}
+
+.posts ul {
+    align-self: flex-start;
+}
+
+.posts ul li a {
+    color: #5C5470;
+}
+
+@media (max-width: 575.98px) { 
+    .bg-dark {
+        height: auto;
+        width: 100%;
+    }
+
+    .blog {
+        padding-top: 40px;
+        gap: 40px;
+    }
+}
+
+button {
+    width: fit-content;
+    align-self: end;
+    margin-bottom: 30px;
+}

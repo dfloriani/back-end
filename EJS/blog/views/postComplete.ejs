@@ -6,9 +6,29 @@
     <p><%= post.blogText %></p>
     <button class="btn btn-light" type="submit">Edit post</button>
   </form>
-  <form action="/delete">
-    <button class="btn btn-light" type="submit">Delete post</button>
-  </form>
+  <button class="btn btn-light" data-bs-toggle="modal" 
+    data-bs-target="#staticBackdrop" type="button">Delete post</button>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">Delete post</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to delete post <%= post.title %>?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light border" data-bs-dismiss="modal">Close</button>
+        <form action="/delete/<%= post.id %>?_method=DELETE" method="POST">
+          <button type="submit" class="btn btn-dark">Confirm</button>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script
@@ -16,6 +36,5 @@
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
       crossorigin="anonymous">
 </script>
-
   </body>
 </html>

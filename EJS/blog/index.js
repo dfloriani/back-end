@@ -50,6 +50,7 @@ app.post("/submit", (req, res) => {
 });
 
 app.get("/blog-posts", (req, res) => {
+  console.log(posts)
   res.render("blog-posts.ejs", { posts: posts});
 });
 
@@ -59,6 +60,16 @@ app.get('/blog-posts/:id', (req, res) => {
     res.render("postComplete.ejs", { post: post });
   }
   else {
+    res.status(404).send('Post not found');
+  }
+});
+
+app.delete('/delete/:id', (req, res) => {
+  const postIndex = posts.find(p => p.id === req.params.id);
+  if (postIndex !== -1) {
+      const post = posts.splice(postIndex, 1)[0]; // Remove post from array
+      res.render("delete.ejs", { title: post.title });
+  } else {
     res.status(404).send('Post not found');
   }
 });

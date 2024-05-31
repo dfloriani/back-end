@@ -1,8 +1,14 @@
 <%- include("partials/sidebar.ejs") %>
 
 <div class="col-sm-8 col-md-9 col-xl-10 blog">
-  <h1><%= post.title %></h1>
-  <p><%= post.blogText %></p>
+  <form action="/edit/<%= post.id %>">
+    <h1><%= post.title %></h1>
+    <p><%= post.blogText %></p>
+    <button class="btn btn-light" type="submit">Edit post</button>
+  </form>
+  <form action="/delete">
+    <button class="btn btn-light" type="submit">Delete post</button>
+  </form>
 </div>
 
 <script

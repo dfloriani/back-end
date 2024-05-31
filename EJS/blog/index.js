@@ -3,6 +3,7 @@ import bodyParser from "body-parser";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import { v4 as uuidv4 } from 'uuid';
+import methodOverride from "method-override";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -17,6 +18,8 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static(__dirname + "/public"));
+
+app.use(methodOverride('_method'));
 
 function createPost(req, res, next) {
     console.log(req.body);
@@ -55,6 +58,29 @@ app.get('/blog-posts/:id', (req, res) => {
   if (post) {
     res.render("postComplete.ejs", { post: post });
   }
+  else {
+    res.status(404).send('Post not found');
+  }
 });
 
+app.get("/edit/:id", (req, res) => {
+  const post = posts.find(p => p.id === req.params.id);
+  res.render("edit.ejs", { post: post });
+});
 
+app.put('/edit/:id', (req, res) => {
+  const post = posts.find(p => p.id === req.params.id);
+  if (post) {
+    post.title = req.body.title;
+    post.blogText = req.body.blogText;
+    const title = post.title;
+    res.render("congrats.ejs", { title: title });
+  } else {
+    res.status(404).send('Post not found');
+  }
+});
+
+app.get('/congrats', (req, res) => {
+  const title = req.query.title;
+  res.render('/congrats/', { title: title });
+});

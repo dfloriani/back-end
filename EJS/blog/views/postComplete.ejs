@@ -22,8 +22,8 @@
         Are you sure you want to delete post <%= post.title %>?
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-light border" data-bs-dismiss="modal">Close</button>
         <form action="/delete/<%= post.id %>?_method=DELETE" method="POST">
+          <button type="button" class="btn btn-light border" data-bs-dismiss="modal">Close</button>
           <button type="submit" class="btn btn-dark">Confirm</button>
         </form>
       </div>

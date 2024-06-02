@@ -22,7 +22,6 @@ app.use(express.static(__dirname + "/public"));
 app.use(methodOverride('_method'));
 
 function createPost(req, res, next) {
-    console.log(req.body);
     title = req.body["title"];
     blogText = req.body["blogText"];
   next();

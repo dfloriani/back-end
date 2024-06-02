@@ -1,13 +1,13 @@
 <%- include("partials/sidebar.ejs") %>
 
 <div class="col-sm-8 col-md-9 col-xl-10 blog">
-  <form action="/edit/<%= post.id %>">
     <h1><%= post.title %></h1>
     <p><%= post.blogText %></p>
-    <button class="btn btn-light" type="submit">Edit post</button>
-  </form>
-  <button class="btn btn-light" data-bs-toggle="modal" 
+  <form method="GET" class="middle-buttons">
+    <button class="btn btn-light border rounded" type="submit" formaction="/edit/<%= post.id %>">Edit post</button>
+    <button class="btn btn-light border rounded" data-bs-toggle="modal" 
     data-bs-target="#staticBackdrop" type="button">Delete post</button>
+  </form>
 </div>
 
 <!-- Modal -->

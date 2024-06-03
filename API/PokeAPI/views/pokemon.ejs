@@ -1,0 +1,16 @@
+<%- include("partials/header.ejs") %>
+<div class="container-grid">
+    <main class="pokemon"><h1>Here's the info about the Pókemon:</h1>
+        <p class="name">Name: <%= content.name %></p>
+        <img src="<%= spriteUrl %>" alt="Image of <%= content.name %>" height="150px">
+        <p>Ability:</p>
+        <ul>
+        <% for (let index = 0; index < content.abilities.length; index++) { %>
+            <li><%= content.abilities[index].ability.name %></li>
+        <%} %>
+        </ul> 
+        <form method="GET">
+            <button type="submit" formaction="/pokemon">View another</button>
+        </form>
+    </main>
+<%- include("partials/footer.ejs") %>

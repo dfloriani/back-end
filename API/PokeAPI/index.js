@@ -1,12 +1,16 @@
 import express from "express";
 import axios from "axios";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
 
+const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 const API_URL = "https://pokeapi.co/api/v2/pokemon/"
 const SPRITES_BASE_URL = "https://unpkg.com/pokeapi-sprites@2.0.2/sprites/pokemon/other/dream-world/"
-
-app.use(express.static("public"));
+app.use(express.static(__dirname + "/public"));
+app.set('view engine', 'ejs');
+app.set('views', __dirname + '/views')
 
 app.get("/", (req, res) => {
     res.render("index.ejs");

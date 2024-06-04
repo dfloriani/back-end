@@ -1,7 +1,7 @@
 <%- include("partials/sidebar.ejs") %>
 
 <div class="col-sm-8 col-md-9 col-xl-10 posts">
-    <p>Click to view the posts, edit or delete.</p>
+    <h1>Click to view the posts, edit or delete.</h1>
     <ul>
         <% posts.forEach(p => { %>
             <li><a href="/blog-posts/<%= p.id %>"><%= p.title %></a></li>

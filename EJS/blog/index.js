@@ -8,12 +8,13 @@ import methodOverride from "method-override";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 let title = "";
 let blogText = "";
 let posts = [];
 
 app.set('view engine', 'ejs');
+app.set('views', __dirname + '/views')
 
 app.use(bodyParser.urlencoded({ extended: true }));
 

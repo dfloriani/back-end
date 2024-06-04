@@ -2,7 +2,8 @@
 <div class="container-grid">
     <main class="pokemon"><h1>Here's the info about the Pókemon:</h1>
         <p class="name">Name: <%= content.name %></p>
-        <img src="<%= spriteUrl %>" alt="Image of <%= content.name %>" height="150px">
+        <div id="loading" style="display: flex;">Loading...</div>
+        <img id="pokemon-image" src="<%= spriteUrl %>" alt="Image of <%= content.name %>" height="150px" style="display: none;">
         <p>Ability:</p>
         <ul>
         <% for (let index = 0; index < content.abilities.length; index++) { %>
@@ -13,4 +14,15 @@
             <button type="submit" formaction="/pokemon">View another</button>
         </form>
     </main>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+    const loading = document.getElementById("loading");
+    const pokemonImage = document.getElementById("pokemon-image");
+
+    pokemonImage.onload = function() {
+        loading.style.display = "none";
+        pokemonImage.style.display = "inline";
+    };
+});
+</script>
 <%- include("partials/footer.ejs") %>

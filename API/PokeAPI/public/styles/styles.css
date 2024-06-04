@@ -50,3 +50,9 @@ ul {
     justify-content: center;
     padding: 0;
 }
+
+#loading {
+    font-size: 2rem;
+    align-items: center;
+    justify-content: center;
+}

@@ -4,7 +4,7 @@
         <p class="name">Name: <%= content.name %></p>
         <div id="loading" style="display: flex;">Loading...</div>
         <p id="error-message" style="display: none; color: red;">Failed to load image</p>
-        <img id="pokemon-image" style="display: none;" src="<%= spriteUrl %>" alt="Image of <%= content.name %>" height="150px">
+        <img id="pokemon-image" src="<%= spriteUrl %>" alt="Image of <%= content.name %>" style="display: none;" height="150px">
         <p>Ability:</p>
         <ul>
         <% for (let index = 0; index < content.abilities.length; index++) { %>
@@ -38,7 +38,7 @@
                     loading.style.display = "none";
                     errorMessage.style.display = "block";
                 }
-    }, 8000);
+    }, 15000);
 });
 </script>
 <%- include("partials/footer.ejs") %>
